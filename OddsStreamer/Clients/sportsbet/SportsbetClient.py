@@ -4,7 +4,7 @@ import requests
 class SportsbetClient:
     url = "https://www.sportsbet.com.au/apigw/sportsbook-sports/Sportsbook/Sports/Competitions/"
 
-    def getTopSportsOdds(self, comp, params=None):
+    def getOdds(self, comp, params=None):
         curr_url = f"{self.url}{comp}"
 
         if params:
@@ -14,5 +14,4 @@ class SportsbetClient:
                 curr_url += "&"
             curr_url = curr_url[:-1]
 
-        print(curr_url)
         return requests.get(curr_url).json()

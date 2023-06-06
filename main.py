@@ -1,5 +1,5 @@
-from clients.sportsbet import SportsbetOpts
-from clients.sportsbet.SportsbetClient import SportsbetClient
+from Clients.sportsbet import SportsbetOpts
+from Clients.sportsbet import SportsbetClient
 
 if __name__ == '__main__':
     client = SportsbetClient()

@@ -20,6 +20,15 @@ class AFLMetadataScraper(MetadataScraper):
                 game_index = i
                 break
 
+        print("Select a game to stream odds: ")
+        game_map = {}
+        i = 1
         while games[game_index]['round'] == selected_round:
-            print(f"{games[game_index]['hteam']} vs {games[game_index]['ateam']} - {datetime.strptime(games[game_index]['date'], '%Y-%m-%d %H:%M:%S').strftime('%A %d %b, %I:%M %p')}")
+            game_map[i] = games[game_index]
+            print(f"{i}. {games[game_index]['hteam']} vs {games[game_index]['ateam']} - {datetime.strptime(games[game_index]['date'], '%Y-%m-%d %H:%M:%S').strftime('%A %d %b, %I:%M %p')}")
             game_index += 1
+            i += 1
+
+        selected_game = int(input(""))
+        print(f"Selected Game: {game_map[selected_game]['hteam']} vs {game_map[selected_game]['ateam']}")
+        return selected_game, game_map[selected_game]
